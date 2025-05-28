@@ -14,15 +14,15 @@ Build a simple Pokémon simulation in C#. The project will help you demonstrate:
 
 ### 📚 Background
 
-You're creating a mini battle simulator for a Pokémon training program. Each Pokémon has a type, can attack, and some can evolve. Your trainer can level up their Pokémon and observe their attacks.
+You're creating a mini battle simulator for a Pokémon training program. Each Pokémon has an element type, can attack, and some can evolve. Your trainer can level up their Pokémon and observe their attacks.
 
 ---
 
 ### 📅 Instructions
 
-#### 1. Define the `Type` Enum
+#### 1. Define the `ElementType` Enum
 
-Create an `enum` called `Type` with the values:
+Create an `enum` called `ElementType` with the values:
 
 * `Fire`
 * `Water`
@@ -37,7 +37,7 @@ This will be used for both Pokémon and attacks.
 Define a class `Attack` with:
 
 * `string Name`
-* `Type Type`
+* `ElementType Type`
 * `int BasePower`
 
 Include a method:
@@ -111,7 +111,7 @@ Create three generic subclasses for each type:
 * `WaterPokemon : Pokemon`
 * `ElectricPokemon : Pokemon`
 
-These should automatically set the `Type` field to the corresponding enum value (`Type.Fire`, `Type.Water`, or `Type.Electric`).
+These should automatically set the `Type` field to the corresponding enum value (`ElementType.Fire`, `ElementType.Water`, or `ElementType.Electric`).
 
 Then, create at least 3 named Pokémon subclasses (e.g. `Charmander`, `Squirtle`, `Pikachu`) that inherit from the appropriate type-specific class:
 
