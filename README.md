@@ -4,11 +4,11 @@
 
 Build a simple Pokémon simulation in C#. The project will help you demonstrate:
 
-* Encapsulation (fields + validation)
-* Inheritance and abstraction
-* Polymorphism
-* Interface implementation
-* Using enums and working with composition
+- Encapsulation (fields + validation)
+- Inheritance and abstraction
+- Polymorphism
+- Interface implementation
+- Using enums and working with composition
 
 ---
 
@@ -24,9 +24,9 @@ You're creating a mini battle simulator for a Pokémon training program. Each Po
 
 Create an `enum` called `ElementType` with the values:
 
-* `Fire`
-* `Water`
-* `Electric`
+- `Fire`
+- `Water`
+- `Electric`
 
 This will be used for both Pokémon and attacks.
 
@@ -36,17 +36,17 @@ This will be used for both Pokémon and attacks.
 
 Define a class `Attack` with:
 
-* `string Name`
-* `ElementType Type`
-* `int BasePower`
+- `string Name`
+- `ElementType Type`
+- `int BasePower`
 
 Include a method:
 
 ```csharp
-public string Use(int level)
+public void Use(int level)
 ```
 
-It should return a message like:
+It should write out a message to the console like this:
 
 ```
 Flamethrower hits with total power 22!
@@ -61,8 +61,8 @@ Where 22 is `BasePower + level`.
 Before the program starts (e.g. in `Main()`), create at least **2 attacks for each type** and assign them to variables:
 
 ```csharp
-var flamethrower = new Attack("Flamethrower", Type.Fire, 12);
-var ember = new Attack("Ember", Type.Fire, 6);
+var flamethrower = new Attack("Flamethrower", ElementType.Fire, 12);
+var ember = new Attack("Ember", ElementType.Fire, 6);
 ```
 
 You will later assign these to Pokémon.
@@ -73,32 +73,28 @@ You will later assign these to Pokémon.
 
 Use public properties and apply validation logic to ensure data integrity.
 
-* A public property for `Name` (2–15 characters)
+- A public property for `Name` (2–15 characters)
 
-* A public property for `Level` (must be ≥ 1)
+- A public property for `Level` (must be ≥ 1)
 
-* A read-only property for `Type` representing the Pokémon's elemental type
+- A property for `Type` representing the Pokémon's elemental type
 
-* A `List<Attack>` field called `Attacks`, which should be passed in and set via the constructor
+- A `List<Attack>` field called `Attacks`, which should be passed in and set via the constructor. This list will represent the attacks that a Pokémon knows
 
-* This list will represent the attacks that a Pokémon knows
-
-* An abstract method:
+- Three methods:
 
 ```csharp
-public abstract string Attack();
-```
+public void RandomAttack(){
+  // Picks a random attack from the list of attacks and invokes its .Use-method.
+};
 
-* A non-overridable instance method:
+public void Attack(){
+  // Lets the user pick an attack from the list of attacks and invoke its .Use-method.
+}:
 
-```csharp
-public void RaiseLevel()
-```
-
-This should increment the level and print:
-
-```
-{Name} leveled up to {Level}!
+public void RaiseLevel(){
+  // That should increment the level of the given pokemon and print that the pokemon has leveled up.
+};
 ```
 
 ---
@@ -107,27 +103,17 @@ This should increment the level and print:
 
 Create three generic subclasses for each type:
 
-* `FirePokemon : Pokemon`
-* `WaterPokemon : Pokemon`
-* `ElectricPokemon : Pokemon`
+- `FirePokemon : Pokemon`
+- `WaterPokemon : Pokemon`
+- `ElectricPokemon : Pokemon`
 
 These should automatically set the `Type` field to the corresponding enum value (`ElementType.Fire`, `ElementType.Water`, or `ElementType.Electric`).
 
 Then, create at least 3 named Pokémon subclasses (e.g. `Charmander`, `Squirtle`, `Pikachu`) that inherit from the appropriate type-specific class:
 
-* `Charmander : FirePokemon`
-* `Squirtle : WaterPokemon`
-* `Pikachu : ElectricPokemon`
-
-Each should:
-
-* Accept and store a list of `Attack` instances in the constructor
-* Override the `Attack()` method in one of two ways:
-
-  * **Basic version**: Return the result of calling `.Use(Level)` on a default attack from the list.
-  * **Advanced version**: Present a numbered menu listing the available attacks. The user selects one (e.g., via `Console.ReadLine()`), and the method then returns the result of calling `.Use(Level)` on the chosen attack.
-
-Implement both versions to practice both output generation and interactive console input. You can just comment out one of them when running the application.
+- `Charmander : FirePokemon`
+- `Squirtle : WaterPokemon`
+- `Pikachu : ElectricPokemon`
 
 ---
 
@@ -144,9 +130,9 @@ public interface IEvolvable
 
 Let at least one Pokémon implement this interface. When evolved, it should:
 
-* Change its `Name`
-* Increase its `Level` by 10
-* Print a message like:
+- Change its `Name`
+- Increase its `Level` by 10
+- Print a message like:
 
 ```
 Pikachu is evolving... Now it's Raichu! Level 25!
@@ -158,9 +144,9 @@ Pikachu is evolving... Now it's Raichu! Level 25!
 
 In your `Main()` method:
 
-* Create several Pokémon and store them in a `List<Pokemon>`
-* Call `RaiseLevel()` and `Attack()` on each
-* If a Pokémon is `IEvolvable`, call its `Evolve()` method
+- Create several Pokémon and store them in a `List<Pokemon>`
+- Call `RaiseLevel()` and `Attack()` on each
+- If a Pokémon is `IEvolvable`, call its `Evolve()` method
 
 ---
 
@@ -192,8 +178,8 @@ Answer the following questions based on the code you’ve written and tested:
 
 ### 💼 Deliverables
 
-* All code should be well-structured in separate files if possible.
-* Avoid hardcoding values in methods (pass level to attack, for example).
-* You may add more Pokémon, attacks, or features as bonus.
+- All code should be well-structured in separate files if possible.
+- Avoid hardcoding values in methods (pass level to attack, for example).
+- You may add more Pokémon, attacks, or features as bonus.
 
 Good luck, Trainer! 🌟
